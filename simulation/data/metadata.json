@@ -1,0 +1,78 @@
+{
+  "model": {
+    "n_followers": 4,
+    "beta": 0.9166666666666666,
+    "alpha": 1.0,
+    "gamma": 1.0,
+    "theta": 1.5,
+    "drift_saturation": 1.5,
+    "forcing_amplitude": 1.0,
+    "forcing_frequency": 2.0,
+    "dt": 0.0005,
+    "horizon": 6.0,
+    "epsilon": 0.001
+  },
+  "master_seed": 734921,
+  "representative_seed": 418637,
+  "representative_simulation_horizon_s": 6.0,
+  "representative_archive_window_s": 2.0,
+  "rho_values": [
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "primary_n_per_rho": 5000,
+  "step_n_per_endpoint": 2000,
+  "beta_n_per_setting": 1500,
+  "initial_leader": 1.0,
+  "initial_error": [
+    3.0,
+    2.0,
+    -6.0,
+    -2.0
+  ],
+  "laplacian": [
+    [
+      0.5,
+      -0.25,
+      0.0,
+      -0.25
+    ],
+    [
+      -0.25,
+      0.5,
+      -0.25,
+      0.0
+    ],
+    [
+      0.0,
+      -0.25,
+      0.5,
+      -0.25
+    ],
+    [
+      -0.25,
+      0.0,
+      -0.25,
+      0.5
+    ]
+  ],
+  "full_pinning": [
+    5.0,
+    5.0,
+    5.0,
+    5.0
+  ],
+  "solver": "Euler-Maruyama with threshold-triggered numerical absorption",
+  "correlation_construction": "B1=Z1, B2=rho*Z1+sqrt(1-rho^2)*Z2, c_rho=(1+rho)^(-1/2)",
+  "pairing": "All rho levels reuse the same base Gaussian innovations and path identifiers",
+  "restricted_time": "tilde_T_epsilon=min(T_epsilon,H); a missing crossing is assigned H only for restricted summaries and is not recorded as a hitting time",
+  "budget": "Integral of the predictable quadratic-variation density c_rho^2(||u1||^2+||u2||^2+2rho*u1^T*u2); j_at_hit is empty when no crossing is recorded by H",
+  "python": "3.12.13 (main, Mar  3 2026, 15:01:35) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "numpy": "2.5.1",
+  "matplotlib": "3.11.1",
+  "quick_mode": false
+}
